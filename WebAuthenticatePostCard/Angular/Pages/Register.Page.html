@@ -1,0 +1,56 @@
+﻿<div class="well well-lg container">
+    <fieldset>
+        <div id="legend">
+            <legend class="">Register</legend>
+        </div>
+        <form class="form col-xs-12 col-sm-7 col-md-4 col-lg-4 nopadding" name="userForm" ng-submit="submitForm(userForm)" novalidate>
+            <div class="form-group" ng-class="{'has-error':userForm.email.$invalid && checked}">
+                <!-- E-mail -->
+                <label>Email</label>
+                <input type="text" name="email"
+                       placeholder="Email"
+                       class="form-control input-xlarge"
+                       ng-model="user.email"
+                       ng-pattern="emailRegex"
+                       required>
+                <p ng-show="userForm.email.$error.required && checked" class="help-block">*Your email is required.</p>
+                <p ng-show="userForm.email.$error.pattern && checked" class="help-block">*Please enter valid email.</p>
+            </div>
+            <div class="form-group" ng-class="{'has-error':userForm.name.$invalid && checked}">
+                <!-- Name -->
+                <label>Name</label>
+                <input type="text" name="name"
+                       placeholder="Name"
+                       class="input-xlarge form-control"
+                       ng-model="user.name"
+                       required>
+                <p ng-show="userForm.name.$invalid && checked" class="help-block">*Your name is required.</p>
+            </div>
+            <div class="form-group" ng-class="{'has-error':userForm.password.$invalid && checked}">
+                <!-- Password-->
+                <label>Password</label>
+                <input type="password" name="password"
+                       placeholder="Password"
+                       ng-model="user.password"
+                       ng-focus="setfocuspass(true)"
+                       ng-blur="setfocuspass(false)"
+                       required
+                       class="form-control input-xlarge">
+            </div>
+            <div class="form-group" ng-class="{'has-error':userForm.password_confirm.$invalid && checked}">
+                <!--Confirm Password -->
+                <label>Password (Confirm)</label>
+                <input type="password" name="password_confirm"
+                       placeholder="Password"
+                       ng-model="user.confirmpassword"
+                       compare-to="userForm.password.$viewValue"
+                       class="form-control input-xlarge"
+                       required>
+            </div>
+            <hr style="border-top: 1px solid #e5e5e5" />
+            <div class="control-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </fieldset>
+</div>
