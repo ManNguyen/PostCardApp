@@ -21,7 +21,6 @@ JWT token is handle in the Front End using "Angular/Service/AuthenticateService.
 ## Notes
 
 * The Pages #/PostCard is secured in Front End and can be bypassed, but the WebAPI that actually serve pictures is secured in the Back-End via TokenFilterAttribute.
-* I'm fully aware that I stored the password to the database without hash and it should never happen in production state (even at gun point), I'll get the hash algorithm for the password in this weekend.
 
 ## How To Run
 
